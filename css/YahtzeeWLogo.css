@@ -72,6 +72,9 @@ div.right{
     font-size: 25px;
     /*background-color: #F8EDEB;*/
 }
+.diegrid img {
+    border-radius: 2px;
+}
 .rollgriddisplay {
     display: grid;
     grid-template-columns: auto auto auto;
@@ -174,7 +177,6 @@ img.right2{
     background-color: #333333;
 }
 .topnav a {
-    float: left;
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
@@ -188,4 +190,10 @@ img.right2{
 .topnav a.active {
     background-color: #4CAF50;
     color: white;
+}
+.right3{
+    float:right;
+}
+.left3{
+    float:left;
 }
