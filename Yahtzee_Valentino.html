@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yahtzee</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel='stylesheet' href="css/YahtzeeWLogo.css"/>
+    <script src="js/yahtzeeJS.js"></script>
+
+</head>
+    <body>
+
+    <div class="EntirePage">
+            <div class="topnav">
+                <a href="Yahtzee_Valentino.html">Yahtzee (Restart)</a>
+                <a href="https://en.wikipedia.org/wiki/Yahtzee#Rules">Rules of Yahtzee</a>
+                <a href="https://coolors.co/333333-7d602d-c5ad6f-fe5f55">Color Scheme</a>
+            </div>
+
+<!--            <div class="yahHeader">-->
+<!--                <div id="header">-->
+<!--                    <img src='imgs/rollin_die.gif' width='40px' height='40px'>Yahtzee<img src='imgs/rollin_die.gif' width='40px' height='40px'>-->
+<!--                </div>-->
+<!--            </div>-->
+
+        <div class="yahHeader">
+            <div class="yahHeaderCol">
+
+                <div class="left">
+                    <img class="left" src="imgs/rollin_die.gif" width='40px' height='40px'>
+                </div>
+                <div class="center">
+                    <img src="images/YahtzeeTan.png" width='200px' height='200px'>
+                </div>
+                <div class="right2">
+                    <img class="right2" src="imgs/rollin_die.gif" width='40px' height='40px'>
+                </div>
+
+            </div>
+        </div>
+
+
+            <div class="yahtzeegrid">
+                <div class="col1">
+
+                   <div id="backgroundColorRound">
+                    <div class="diegrid">
+
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    <div id="Die1"><div id="Die1img"><img src="imgs/Die1.PNG" width='40px' height='40px'></div><div id="D1CheckHide">Keep?<input type="checkbox" id="Die1Select" name="Die1Select"></div></div>
+                    <div id="Die2"><div id="Die2img"><img src="imgs/Die1.PNG" width='40px' height='40px'></div><div id="D2CheckHide">Keep?<input type="checkbox" id="Die2Select" name="Die2Select"></div></div>
+                    <div id="Die3"><div id="Die3img"><img src="imgs/Die1.PNG" width='40px' height='40px'></div><div id="D3CheckHide">Keep?<input type="checkbox" id="Die3Select" name="Die3Select"></div></div>
+                    <div id="Die4"><div id="Die4img"><img src="imgs/Die1.PNG" width='40px' height='40px'></div><div id="D4CheckHide">Keep?<input type="checkbox" id="Die4Select" name="Die4Select"></div></div>
+                    <div id="Die5"><div id="Die5img"><img src="imgs/Die1.PNG" width='40px' height='40px'></div><div id="D5CheckHide">Keep?<input type="checkbox" id="Die5Select" name="Die5Select"></div></div>
+
+                    </div>
+
+                       <div class="rollgriddisplay">
+                           <div id="RoundCount">Round: <div id="RoundDisplay">0</div></div>
+                           <div id="RollButton"><input type="button" value="Roll" id="rollb"></div>
+                           <div id="ScoreButton"><input type="button" value="Score" id="scoreb"></div>
+                       </div>
+
+                   </div>
+
+                </div>
+
+                <div class="col2">
+                    <table id="scorecard" class="right">
+                    <tr>
+                        <th></th>
+                        <td class="name bottom-player-name"><div id="name">Name</div></td>
+                    </tr>
+                    <tr id="ones">
+                        <th>Ones</th>
+                        <td><div id="ScoreSheetBox1"><input type="checkbox" id="Score1Select" name="Score1Select"></div></td>
+                    </tr>
+                    <tr id="twos">
+                        <th>Twos</th>
+                        <td><div id="ScoreSheetBox2"><input type="checkbox" id="Score2Select" name="Score2Select"></div></td>
+                    </tr>
+                    <tr id="threes">
+                        <th>Threes</th>
+                        <td><div id="ScoreSheetBox3"><input type="checkbox" id="Score3Select" name="Score3Select"></div></td>
+                    </tr>
+                    <tr id="fours">
+                        <th>Fours</th>
+                        <td><div id="ScoreSheetBox4"><input type="checkbox" id="Score4Select" name="Score4Select"></div></td>
+                    </tr>
+                    <tr id="fives">
+                        <th>Fives</th>
+                        <td><div id="ScoreSheetBox5"><input type="checkbox" id="Score5Select" name="Score5Select"></div></td>
+                    </tr>
+                    <tr id="sixes" class="lastline">
+                        <th>Sixes</th>
+                        <td><div id="ScoreSheetBox6"><input type="checkbox" id="Score6Select" name="Score6Select"></div></td>
+                    </tr>
+                    <tr id="sum">
+                        <th>Sum</th>
+                        <td><div id="Score1">0</div></td>
+                    </tr>
+                    <tr id="bonus" class="lastline">
+                        <th>Bonus</th>
+                        <td><div id="Score2"></div></td>
+                    </tr>
+                    <tr id="three-of-a-kind">
+                        <th>Three of a kind</th>
+                        <td><div id="ScoreSheetBox7"><input type="checkbox" id="Score7Select" name="Score7Select"></div></td>
+                    </tr>
+                    <tr id="four-of-a-kind">
+                        <th>Four of a kind</th>
+                        <td><div id="ScoreSheetBox8"><input type="checkbox" id="Score8Select" name="Score8Select"></div></td>
+                    </tr>
+                    <tr id="full-house">
+                        <th>Full House</th>
+                        <td><div id="ScoreSheetBox9"><input type="checkbox" id="Score9Select" name="Score9Select"></div></td>
+                    </tr>
+                    <tr id="small-straight">
+                        <th>Small straight</th>
+                        <td><div id="ScoreSheetBox10"><input type="checkbox" id="Score10Select" name="Score10Select"></div></td>
+                    </tr>
+                    <tr id="large-straight">
+                        <th>Large straight</th>
+                        <td><div id="ScoreSheetBox11"><input type="checkbox" id="Score11Select" name="Score11Select"></div></td>
+                    </tr>
+                    <tr id="yahtzee">
+                        <th>Yahtzee</th>
+                        <td><div id="ScoreSheetBox12"><input type="checkbox" id="Score12Select" name="Score12Select"></div></td>
+                    </tr>
+                    <tr id="chance" class="lastline">
+                        <th>Chance</th>
+                        <td><div id="ScoreSheetBox13"><input type="checkbox" id="Score13Select" name="Score13Select"></div></td>
+                    </tr>
+                    <tr id="total-lower">
+                        <th>Total Lower</th>
+                        <td><div id="Score4">0</div></td>
+                    </tr>
+                    <tr id="total-upper">
+                        <th>Total Upper</th>
+                        <td><div id="Score3">0</div></td>
+                    </tr>
+                    <tr id="total-score">
+                        <th>Total Score</th>
+                        <td><div id="Score5">0</div></td>
+                    </tr>
+                </table>
+                </div>
+
+            </div>
+
+    </div>
+
+   </body>
+</html>
