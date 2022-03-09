@@ -90,7 +90,7 @@ header li {
 
 header a {
     display: block;
-    color: #3498db;
+    color: #200742;
     padding: 10px
 }
 
@@ -216,12 +216,12 @@ footer {
     color: #fff;
     padding: 15px 25px;
     border: 3px solid #fff;
-    border-radius: 30px;
+    border-radius: 18px;
     transition: .5s ease all
 }
 
 .btn-rounded-white:hover {
-    color: #3498db;
+    color: #5f1cb8;
     background: #fff;
     text-decoration: none
 }
@@ -263,7 +263,6 @@ footer {
     height: 100vh;
     min-height: 500px;
     max-height: 1080px;
-    background: url(../images/lead-bg.jpg);
     background-size: cover;
     padding: 15px;
     overflow: hidden
@@ -292,7 +291,8 @@ footer {
 }
 
 #lead-content h2 {
-    color: #a0cfee;
+    color: #5f1cb8;
+    /*text-shadow: 1px 1px 4px white;*/
     font-weight: 500;
     font-size: 2.25em;
     margin-bottom: 15px
@@ -306,7 +306,7 @@ footer {
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(33, 125, 187, 0.8);
+    background-image: url("../images/unsplash.jpg");
     z-index: 1
 }
 
@@ -328,7 +328,7 @@ footer {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    border: 3px solid #a0cfee;
+    border: 3px solid #5f1cb8;
     text-align: center
 }
 
@@ -389,7 +389,7 @@ footer {
     right: auto;
     height: 100%;
     width: 3px;
-    background: #3498db;
+    background: #5f1cb8;
     z-index: 0
 }
 
@@ -398,8 +398,8 @@ footer {
     content: '';
     width: 3px;
     height: 40px;
-    background: #3498db;
-    background: linear-gradient(to bottom, #3498db, rgba(52, 152, 219, 0));
+    background: #5f1cb8;
+    background: linear-gradient(to bottom, #5f1cb8, rgba(52, 152, 219, 0));
     top: 100%;
     left: 303px
 }
@@ -446,7 +446,7 @@ footer {
     color: #fff;
     width: 50px;
     height: 50px;
-    background: #3498db;
+    background: #5f1cb8;
     border-radius: 50%;
     float: left;
     z-index: 99;
