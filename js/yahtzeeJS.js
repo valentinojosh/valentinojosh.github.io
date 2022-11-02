@@ -211,22 +211,22 @@
 }
 }
     if(amt1 >= 3){
-    tempScore2 = 3;
+    tempScore2 = ((amt1 * 1) + (amt2 * 2) + (amt3 * 3) + (amt4 * 4) + (amt5 * 5) + (amt6 * 6));
 }
     else if(amt2 >= 3){
-    tempScore2 = 6;
+    tempScore2 = ((amt1 * 1) + (amt2 * 2) + (amt3 * 3) + (amt4 * 4) + (amt5 * 5) + (amt6 * 6));
 }
     else if(amt3 >= 3){
-    tempScore2 = 9;
+    tempScore2 = ((amt1 * 1) + (amt2 * 2) + (amt3 * 3) + (amt4 * 4) + (amt5 * 5) + (amt6 * 6));
 }
     else if(amt4 >= 3){
-    tempScore2 = 12;
+    tempScore2 = ((amt1 * 1) + (amt2 * 2) + (amt3 * 3) + (amt4 * 4) + (amt5 * 5) + (amt6 * 6));
 }
     else if(amt5 >= 3){
-    tempScore2 = 15;
+    tempScore2 = ((amt1 * 1) + (amt2 * 2) + (amt3 * 3) + (amt4 * 4) + (amt5 * 5) + (amt6 * 6));
 }
     else if(amt6 >= 3){
-    tempScore2 = 18;
+    tempScore2 = ((amt1 * 1) + (amt2 * 2) + (amt3 * 3) + (amt4 * 4) + (amt5 * 5) + (amt6 * 6));
 }
     else{
     tempScore2 = 0;
@@ -266,22 +266,22 @@
 }
 }
     if(amt1 >= 4){
-    tempScore2 = 4;
+    tempScore2 = ((amt1 * 1) + (amt2 * 2) + (amt3 * 3) + (amt4 * 4) + (amt5 * 5) + (amt6 * 6));
 }
     else if(amt2 >= 4){
-    tempScore2 = 8;
+    tempScore2 = ((amt1 * 1) + (amt2 * 2) + (amt3 * 3) + (amt4 * 4) + (amt5 * 5) + (amt6 * 6));
 }
     else if(amt3 >= 4){
-    tempScore2 = 12;
+    tempScore2 = ((amt1 * 1) + (amt2 * 2) + (amt3 * 3) + (amt4 * 4) + (amt5 * 5) + (amt6 * 6));
 }
     else if(amt4 >= 4){
-    tempScore2 = 16;
+    tempScore2 = ((amt1 * 1) + (amt2 * 2) + (amt3 * 3) + (amt4 * 4) + (amt5 * 5) + (amt6 * 6));
 }
     else if(amt5 >= 4){
-    tempScore2 = 20;
+    tempScore2 = ((amt1 * 1) + (amt2 * 2) + (amt3 * 3) + (amt4 * 4) + (amt5 * 5) + (amt6 * 6));
 }
     else if(amt6 >= 4){
-    tempScore2 = 24;
+    tempScore2 = ((amt1 * 1) + (amt2 * 2) + (amt3 * 3) + (amt4 * 4) + (amt5 * 5) + (amt6 * 6));
 }
     else{
     tempScore2 = 0;
@@ -543,7 +543,13 @@
     //Function that updates the round variable and display of rounds
     function UpdateRound(){
     roundCount++;
-    let rcString = 'Round: ' + roundCount.toString()
+    let rcString = '';
+    if (roundCount == 13){
+        rcString = 'Game Complete! Restart if you would like to play again'
+    }
+    else {
+        rcString = roundCount.toString()
+    }
     document.getElementById('RoundDisplay').innerHTML= rcString;
 }
 
