@@ -76,10 +76,8 @@
     function ResetKeep(){
     for (let i = 1; i < 6; i++) {
     let ii = i.toString();
-    let oStr = `Keep?<input type="checkbox" id='Die${ii}Select' name='Die${ii}Select'>`;
+    let oStr = ``;
     document.getElementById(`D${ii}CheckHide`).innerHTML= oStr;
-    document.getElementById(`Die${ii}Select`).checked = false;
-    CurrentDice[i-1].keep = 'No';
 }
 }
 
@@ -185,119 +183,75 @@
     //Function that determines if there is a 3 of kind what score should be returned to the calculation function
     function ThreeKind(){
         OrderTemp();
-        let ThreeSet = new Set(TempDiceOrder);
-        if(ThreeSet.size <= 3){
-            let sum = 0;
-            for(let i = 1; i < 6; i++){
-                sum += TempDiceOrder[i-1];
+        let count = 1;
+        for(let i = 0; i < TempDiceOrder.length-1; i++){
+            if(TempDiceOrder[i] == TempDiceOrder[i+1]){
+                count++;
             }
-            return sum;
+            else{
+                count = 1;
+            }
+            if(count == 3){
+                let sum = 0;
+                for(let i = 1; i < 6; i++){
+                    sum += TempDiceOrder[i-1];
+                }
+                return sum;
+            }
         }
-        else{
-            return 0;
-        }
-}
-
+        return 0;      
+    }   
+ 
     //Function that determines if there is a 4 of kind what score should be returned to the calculation function
     function FourKind(){
         OrderTemp();
-        let FourSet = new Set(TempDiceOrder);
-        if(FourSet.size <= 2){
-            let sum = 0;
-            for(let i = 1; i < 6; i++){
-                sum += TempDiceOrder[i-1];
+        let count = 1;
+        for(let i = 0; i < TempDiceOrder.length-1; i++){
+            if(TempDiceOrder[i] == TempDiceOrder[i+1]){
+                count++;
             }
-            return sum;
+            else{
+                count = 1;
+            }
+            if(count == 4){
+                let sum = 0;
+                for(let i = 1; i < 6; i++){
+                    sum += TempDiceOrder[i-1];
+                }
+                return sum;
+            }
+        }
+        return 0;
+}
+
+    //Function that determines fullhouse score to be returned
+    function FullHouse(){
+        OrderTemp();
+        const count = {};
+        let TwoKind = false;
+        let ThreeKind = false;
+        for (const i of TempDiceOrder) {
+            if (count[i]) {
+            count[i] += 1;
+            } else {
+            count[i] = 1;
+            }
+        }
+        for (const [key, value] of Object.entries(count)) {
+            console.log(`${key}: ${value}`);
+            if( value == 2){
+                TwoKind = true;
+            }
+            if( value == 3){
+                ThreeKind = true;
+            }
+          }
+        if(TwoKind && ThreeKind){
+            return 25;
         }
         else{
             return 0;
         }
-}
-
-    //Function that preludes the FullHouse function
-    //Returns true if the 3 of a kind section of a full house is satisfied
-    function FullHousePre1(){
-    OrderTemp();
-    let amt1 = 0;
-    let amt2 = 0;
-    let amt3 = 0;
-    let amt4 = 0;
-    let amt5 = 0;
-    let amt6 = 0;
-    let tempBoolean = false;
-    for(let i = 1; i < 6; i++){
-    let j = TempDiceOrder[i-1];
-    if(j == 1){
-    amt1++;
-}
-    else if(j == 2){
-    amt2++;
-}
-    else if(j == 3){
-    amt3++;
-}
-    else if(j == 4){
-    amt4++;
-}
-    else if(j == 5){
-    amt5++;
-}
-    else if(j == 6){
-    amt6++;
-}
-}
-    if(amt1 >= 3 || amt2 >= 3 || amt3 >= 3 || amt4 >= 3 || amt5 >= 3 || amt6 >= 3){
-    tempBoolean = true;
-}
-    return tempBoolean;
-}
-
-    //Function that preludes the FullHouse function
-    //Returns true if the 2 of a kind section of a full house is satisfied
-    function FullHousePre2(){
-    OrderTemp();
-    let amt1 = 0;
-    let amt2 = 0;
-    let amt3 = 0;
-    let amt4 = 0;
-    let amt5 = 0;
-    let amt6 = 0;
-    let tempBoolean = false;
-    for(let i = 1; i < 6; i++){
-    let j = TempDiceOrder[i-1];
-    if(j == 1){
-    amt1++;
-}
-    else if(j == 2){
-    amt2++;
-}
-    else if(j == 3){
-    amt3++;
-}
-    else if(j == 4){
-    amt4++;
-}
-    else if(j == 5){
-    amt5++;
-}
-    else if(j == 6){
-    amt6++;
-}
-}
-    if(amt1 >= 2 || amt2 >= 2 || amt3 >= 2 || amt4 >= 2 || amt5 >= 2 || amt6 >= 2){
-    tempBoolean = true;
-}
-    return tempBoolean;
-}
-
-    //Function that determines what score should be returned to the calculation function
-    function FullHouse(){
-    if((FullHousePre1() == true) && (FullHousePre2() == true)){
-        return 25;
-    }
-    else{
-        return 0;
-    }
     }
 
     //Function that decides if there is a small straight and returns the score to the calculation function
@@ -421,6 +375,15 @@
     //Main function that executes on click of the roll button
     //Acts as what keeps the game moving, rolling the dice and being the main function of the program
     $("#rollb").click(function roll() {
+    if(rollCount == 0){
+        for (let i = 1; i < 6; i++) {
+            let ii = i.toString();
+            let oStr = `Keep?<input type="checkbox" id='Die${ii}Select' name='Die${ii}Select'>`;
+            document.getElementById(`D${ii}CheckHide`).innerHTML= oStr;
+            document.getElementById(`Die${ii}Select`).checked = false;
+            CurrentDice[i-1].keep = 'No';
+        }
+    }
     CheckKeep();
     if (rollCount < 3){
     for (let i = 1; i < 6; i++) {
