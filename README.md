@@ -1,3 +1,3 @@
 # valentinojosh.github.io
 
-This is my portfolio!
+previous portfolio hosted on gh-pages. currently used to host some older projects
